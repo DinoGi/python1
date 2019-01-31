@@ -1,0 +1,35 @@
+# Python for Everybody 
+# Getting Started with Python
+# Class of Week 7
+# Assignment 5.2
+
+"""
+5.2 Write a program that repeatedly prompts a user for integer numbers until the user enters 'done'. 
+Once 'done' is entered, print out the largest and smallest of the numbers. 
+If the user enters anything other than a valid number catch it with a try/except and put out an appropriate message and ignore the number. 
+Enter 7, 2, bob, 10, and 4 and match the output below.
+"""
+
+biggest_so_far = None
+smallest_so_far = None
+
+while True:
+    sval = input('Enter a number: ')
+    if sval == 'done':
+        break
+    else:
+        try:
+            fval = float(sval)
+        except:
+            print('Invalid input')
+            continue
+    if biggest_so_far is None and smallest_so_far is None:
+        biggest_so_far = fval
+        smallest_so_far = fval
+    elif biggest_so_far < fval:
+        biggest_so_far = fval
+    elif smallest_so_far > fval:
+        smallest_so_far = fval
+
+print('Maximum is', int(biggest_so_far))
+print('Minimum is', int(smallest_so_far))
